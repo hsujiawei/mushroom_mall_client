@@ -1,6 +1,11 @@
-import { createApp } from "vue";
-import "./style.css";
-import "@/assets/test.css";
-import App from "./App.vue";
+import { createApp } from 'vue';
+import './style.css';
+import App from './App.vue';
+import registerAntDesign from './ant-design';
+import pinia from './store';
 
-createApp(App).mount("#app");
+const app = createApp(App);
+
+app.use(pinia);
+app.use(registerAntDesign);
+app.mount('#app');
