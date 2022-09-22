@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { MenuProps } from 'ant-design-vue';
 import { ref, watch } from 'vue';
+import { asideMenuConfig } from '@/config';
 
 // ===================== Variables =====================
 const selectedKeys = ref<string[]>(['1']);
@@ -26,71 +27,54 @@ watch(
     v-model:selectedKeys="selectedKeys"
     mode="inline"
     @click="handleClick"
+    class="text-menu-common"
   >
-    <!-- 首页选项 -->
-    <a-menu-item key="1">
-      <template #icon>
-        <HomeOutlined />
-      </template>
-      <span>首页</span>
-    </a-menu-item>
-
-    <!-- 用户管理 -->
-    <a-sub-menu key="sub2" @titleClick="titleClick">
-      <template #icon>
-        <user-outlined />
-      </template>
-      <template #title>商品管理</template>
-      <a-menu-item key="5">Option 5</a-menu-item>
-      <a-menu-item key="6">Option 6</a-menu-item>
-      <a-sub-menu key="sub3" title="Submenu">
-        <a-menu-item key="7">Option 7</a-menu-item>
-        <a-menu-item key="8">Option 8</a-menu-item>
+    <!-- 生成侧边栏菜单 -->
+    <template v-for="(item, index) of asideMenuConfig" :key="index">
+      <a-menu-item v-if="!item.subMenus" :key="item.key">
+        <template v-if="item.icon" #icon>
+          <component :is="item.icon" />
+        </template>
+        <router-link :to="item.path!">{{ item.title }}</router-link>
+        <!-- <span>{{ item.title }}</span> -->
+      </a-menu-item>
+      <!-- 如果有子菜单就使用下面的组件 -->
+      <a-sub-menu v-else :key="item.key + 1" @titleClick="titleClick">
+        <template v-if="item.icon" #icon>
+          <component :is="item.icon" />
+        </template>
+        <template #title>{{ item.title }}</template>
+        <!-- 生成子菜单 -->
+        <template v-for="(subMenu, index) of item.subMenus" :key="index">
+          <a-menu-item v-if="subMenu" :key="subMenu.key">
+            <template v-if="subMenu.icon" #icon>
+              <component :is="subMenu.icon" />
+            </template>
+            <router-link :to="subMenu.path!">{{ subMenu.title }}</router-link>
+            <!-- <span>{{ subMenu.title }}</span> -->
+          </a-menu-item>
+        </template>
       </a-sub-menu>
-    </a-sub-menu>
-
-    <!-- 商品选项 -->
-    <a-sub-menu key="sub2" @titleClick="titleClick">
-      <template #icon>
-        <shopping-outlined />
-      </template>
-      <template #title>商品管理</template>
-      <a-menu-item key="5">Option 5</a-menu-item>
-      <a-menu-item key="6">Option 6</a-menu-item>
-      <a-sub-menu key="sub3" title="Submenu">
-        <a-menu-item key="7">Option 7</a-menu-item>
-        <a-menu-item key="8">Option 8</a-menu-item>
-      </a-sub-menu>
-    </a-sub-menu>
-
-    <!-- 订单选项 -->
-    <a-sub-menu key="sub4">
-      <template #icon>
-        <diff-outlined />
-      </template>
-      <template #title>订单管理</template>
-      <a-menu-item key="9">Option 9</a-menu-item>
-      <a-menu-item key="10">Option 10</a-menu-item>
-      <a-menu-item key="11">Option 11</a-menu-item>
-      <a-menu-item key="12">Option 12</a-menu-item>
-    </a-sub-menu>
-
-    <!-- 销售选项 -->
-    <a-sub-menu key="sub5">
-      <template #icon>
-        <account-book-outlined />
-      </template>
-      <template #title>营销管理</template>
-    </a-sub-menu>
-
-    <!-- 权限选项 -->
-    <a-sub-menu key="sub6">
-      <template #icon>
-        <security-scan-outlined />
-      </template>
-      <template #title>权限管理</template>
-    </a-sub-menu>
+    </template>
   </a-menu>
 </template>
 
-<style scoped></style>
+<style scoped>
+:global(.ant-menu-root .ant-menu-item-selected, .ant-menu-root
+    .ant-menu-submenu-vertical.ant-menu-submenu-selected) {
+  /* eslint-disable-next-line */
+  @apply font-bold text-menu-selected !bg-transparent;
+}
+
+:global(.ant-menu-root .ant-menu-item-selected::after) {
+  @apply border-menu-b-c;
+}
+
+:global(.ant-menu-root .ant-menu-submenu-open),
+:global(.ant-menu-root .ant-menu-submenu-open .ant-menu-submenu-title i),
+:global(.ant-menu-root .ant-menu-item:hover),
+:global(.ant-menu-root .ant-menu-submenu .ant-menu-submenu-title:hover),
+:global(.ant-menu-root .ant-menu-submenu .ant-menu-submenu-title:hover i) {
+  @apply text-menu-selected;
+}
+</style>

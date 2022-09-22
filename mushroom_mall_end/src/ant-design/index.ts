@@ -15,6 +15,17 @@ import {
   SubMenu,
   Avatar,
   Dropdown,
+  Breadcrumb,
+  BreadcrumbItem,
+  Form,
+  FormItem,
+  Input,
+  Checkbox,
+  InputPassword,
+  Divider,
+  Row,
+  Col,
+  BreadcrumbSeparator,
 } from 'ant-design-vue';
 
 // 组件
@@ -30,8 +41,20 @@ const components = [
   SubMenu,
   Avatar,
   Dropdown,
+  Breadcrumb,
+  BreadcrumbItem,
+  Form,
+  FormItem,
+  Input,
+  Checkbox,
+  InputPassword,
+  Divider,
+  Row,
+  Col,
+  BreadcrumbSeparator,
 ];
 
+// 导入所需的 icon
 import {
   HomeOutlined,
   ShoppingOutlined,
@@ -43,8 +66,15 @@ import {
   UserOutlined,
   EditOutlined,
   ExportOutlined,
+  CaretDownOutlined,
+  AppstoreOutlined,
+  ArrowUpOutlined,
+  AppstoreAddOutlined,
+  UnorderedListOutlined,
+  TagOutlined,
+  GroupOutlined,
+  GoldOutlined,
 } from '@ant-design/icons-vue';
-// icon
 const icons = [
   HomeOutlined,
   ShoppingOutlined,
@@ -55,7 +85,15 @@ const icons = [
   MenuUnfoldOutlined,
   UserOutlined,
   EditOutlined,
-  ExportOutlined
+  ExportOutlined,
+  CaretDownOutlined,
+  AppstoreOutlined,
+  ArrowUpOutlined,
+  AppstoreAddOutlined,
+  UnorderedListOutlined,
+  TagOutlined,
+  GroupOutlined,
+  GoldOutlined,
 ];
 
 export default function registerAntDesign(app: App) {
@@ -64,6 +102,7 @@ export default function registerAntDesign(app: App) {
     app.component(c.name, c);
   });
   icons.forEach((i) => {
+    // 将所有需要的 icon 都作为全局组件
     app.component(i.displayName, i);
   });
 }
