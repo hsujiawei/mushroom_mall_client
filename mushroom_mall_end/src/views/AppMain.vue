@@ -8,7 +8,7 @@ import ContentView from '@/views/ContentView.vue';
 </script>
 
 <template>
-  <a-layout :style="{ width: '100%', height: '100%' }">
+  <a-layout class="w-full h-screen">
     <HeaderView />
     <a-layout>
       <SiderView />

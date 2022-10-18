@@ -5,5 +5,8 @@
 </script>
 
 <template>
-  <h2>Goods Type Page</h2>
+  <div>
+    <h2>Goods Type Page</h2>
+    <h2>goodsd</h2>
+  </div>
 </template>

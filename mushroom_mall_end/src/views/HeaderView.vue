@@ -3,7 +3,8 @@ import HeaderMain from '@/components/header/HeaderMain.vue';
 </script>
 
 <template>
-  <a-layout-header class="bg-white border-b-[0.15rem] px-0">
+  <!-- border-b-[0.15rem]  -->
+  <a-layout-header theme="dark" class="bg-white px-0">
     <HeaderMain />
   </a-layout-header>
 </template>

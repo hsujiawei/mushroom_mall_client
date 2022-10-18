@@ -5,14 +5,15 @@ import registerAntDesign from '@/ant-design';
 import pinia from '@/store';
 import router from '@/router';
 import 'nprogress/nprogress.css';
-import http from './network';
+import commonUtil from './utils';
+import { http } from './network';
 
 const app = createApp(App);
-app.use(router);
 app.use(pinia);
+app.use(router);
 app.use(registerAntDesign);
 app.mount('#app');
 
-// 测试请求
-http.get('/test');
-
+// const base = commonUtil.base64('encode', '你好啊');
+// console.log('base64: ', base);
+// console.log('base64 解码: ', commonUtil.base64('decode', base));

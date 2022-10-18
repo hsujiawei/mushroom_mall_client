@@ -7,7 +7,8 @@ const commonStore = useCommonStore();
 </script>
 
 <template>
-  <a-layout-sider class="bg-white" :collapsed="commonStore.isMenuFold">
+  <!-- class="bg-white" -->
+  <a-layout-sider :collapsed="commonStore.isMenuFold">
     <SiderMain />
   </a-layout-sider>
 </template>

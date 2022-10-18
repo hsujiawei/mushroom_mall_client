@@ -26,6 +26,20 @@ import {
   Row,
   Col,
   BreadcrumbSeparator,
+  Card,
+  Table,
+  Switch,
+  Image,
+  ImagePreviewGroup,
+  Space,
+  Modal,
+  Upload,
+  Descriptions,
+  DescriptionsItem,
+  Badge,
+  Tooltip,
+  Select,
+  InputNumber,
 } from 'ant-design-vue';
 
 // 组件
@@ -52,6 +66,20 @@ const components = [
   Row,
   Col,
   BreadcrumbSeparator,
+  Card,
+  Table,
+  Switch,
+  Image,
+  ImagePreviewGroup,
+  Space,
+  Modal,
+  Upload,
+  Descriptions,
+  DescriptionsItem,
+  Badge,
+  Tooltip,
+  Select,
+  InputNumber,
 ];
 
 // 导入所需的 icon
@@ -74,6 +102,9 @@ import {
   TagOutlined,
   GroupOutlined,
   GoldOutlined,
+  PlusOutlined,
+  DownloadOutlined,
+  InfoCircleOutlined,
 } from '@ant-design/icons-vue';
 const icons = [
   HomeOutlined,
@@ -94,6 +125,9 @@ const icons = [
   TagOutlined,
   GroupOutlined,
   GoldOutlined,
+  PlusOutlined,
+  DownloadOutlined,
+  InfoCircleOutlined,
 ];
 
 export default function registerAntDesign(app: App) {

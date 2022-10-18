@@ -5,5 +5,5 @@
 </script>
 
 <template>
-  <h2>Goods List Page</h2>
+  <div><h2>Goods List Page</h2></div>
 </template>

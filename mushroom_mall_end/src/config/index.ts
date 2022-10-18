@@ -1,3 +1,5 @@
+import Http, { http } from '@/network';
+import commonService from '@/services/common';
 import { IAsideMenuConfig, ILoginFormConfig } from '@/types';
 
 // 系统的名称，常用的常量都必须要使用大写
@@ -16,12 +18,15 @@ export const loginFormConfig: ILoginFormConfig[] = [
         required: true,
         message: '请输入用户名',
       },
+      {
+        min: 2,
+        message: '用户名不能少于两个字符',
+      },
     ],
     antFormAttrs: {
       allowClear: true,
       autofocus: true,
       bordered: false,
-      autocomplete: 'off',
       class: 'form-item',
     },
   },
@@ -35,6 +40,34 @@ export const loginFormConfig: ILoginFormConfig[] = [
       {
         required: true,
         message: '请输入密码',
+      },
+      {
+        min: 6,
+        message: '密码能少于 6 个字符',
+      },
+    ],
+    antFormAttrs: {
+      allowClear: true,
+      bordered: false,
+      class: 'form-item',
+    },
+  },
+  {
+    label: '验证码',
+    name: 'code',
+    vModel: 'value',
+    component: 'a-input',
+    placeholder: '请输入验证码',
+    rules: [
+      {
+        required: true,
+        message: '请输入验证码',
+      },
+      {
+        len: 5,
+        message: '验证码格式错误',
+        trigger: 'blur',
+        // 自定义验证，这里向服务器进行验证
       },
     ],
     antFormAttrs: {
@@ -83,7 +116,7 @@ export const asideMenuConfig: IAsideMenuConfig[] = [
         icon: 'appstore-add-outlined',
       },
       {
-        key: 'category-goods',
+        key: 'classify-goods',
         title: '商品分类',
         path: '/goods/classify',
         icon: 'appstore-outlined',
@@ -123,7 +156,7 @@ export const asideMenuConfig: IAsideMenuConfig[] = [
 ];
 
 export const HttpBaseConfig = {
-  baseURL: 'http://localhost:6678/api/admin',
+  baseURL: 'https://localhost:6678/api/admin',
   timeout: 5000,
   withCredentials: true,
 };

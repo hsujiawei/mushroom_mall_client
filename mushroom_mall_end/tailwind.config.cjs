@@ -16,7 +16,9 @@ module.exports = {
 
       },
       backgroundColor: {
+        's-i': "rgba(162, 155, 254, 0.1)",
         'common': "#6777ef",
+        'dark': '#001529'
       },
       boxShadow: {
         'around': "0 0 .1rem rgba(0, 0, 0, .25)"

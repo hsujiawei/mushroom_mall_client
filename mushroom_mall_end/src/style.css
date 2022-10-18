@@ -14,3 +14,37 @@ body, #app {
 #nprogress .bar {
   @apply !h-1
 }
+
+/* 全局消息样式 */
+.ant-message .ant-message-notice .ant-message-notice-content {
+  @apply rounded-md
+}
+.ant-message .ant-message-notice .ant-message-notice-content .ant-message-custom-content{
+  @apply min-w-[7rem] flex justify-center items-center
+}
+/* 全局 Modal 样式 */
+.global-modal .ant-modal .ant-modal-content{
+  @apply min-w-[15rem] max-w-[25rem] rounded-md
+}
+.global-modal .ant-modal .ant-modal-content .ant-modal-body {
+  @apply py-4
+}
+.global-modal .ant-modal .ant-modal-content .ant-modal-body  .ant-btn {
+  @apply rounded-md
+}
+
+.ant-table-cell::before {
+  @apply hidden;
+}
+.ant-table-thead .ant-table-cell {
+  @apply py-2;
+}
+.ant-table-thead .ant-table-cell:first-child{
+  @apply rounded-tl-md rounded-bl-md;
+}
+.ant-table-thead .ant-table-cell:last-child {
+  @apply rounded-tr-md rounded-br-md;
+}
+.ant-table-tbody .ant-table-cell {
+  @apply py-3;
+}

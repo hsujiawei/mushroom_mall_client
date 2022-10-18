@@ -85,3 +85,107 @@
       <a-form-item>
         <a-checkbox name="remember">记住我</a-checkbox>
       </a-form-item>
+
+
+  // 面包屑原
+      <!-- <div class="w-full mb-2">
+      <a-breadcrumb class="text-sm">
+        <a-breadcrumb-item>
+          <appstore-outlined />
+        </a-breadcrumb-item>
+        <a-breadcrumb-item><a href="">Application Center</a></a-breadcrumb-item>
+        <a-breadcrumb-item><a href="">Application List</a></a-breadcrumb-item>
+        <a-breadcrumb-item>An Application</a-breadcrumb-item>
+      </a-breadcrumb>
+    </div> -->
+
+
+
+图配置
+  options: {
+    animations: {
+      tension: {
+        duration: 1000,
+        easing: 'linear',
+        from: 1,
+        to: 0,
+        loop: true,
+      },
+    },
+
+    plugins: {
+      legend: {
+        display: false,
+      },
+    },
+    scales: {
+      xAxis: {
+        // The axis for this scale is determined from the first letter of the id as `'x'`
+        // It is recommended to specify `position` and / or `axis` explicitly.
+        display: false,
+      },
+      yAxis: {
+        display: false,
+      },
+    },
+  },
+'
+
+图源
+      <div
+        class="rounded-sm px-2 py-3 flex max-h-[8.5rem]"
+        style="background: linear-gradient(rgb(245, 254, 242) 0%, rgb(230, 254, 238) 100%)">
+        <!-- 格子左侧 -->
+        <div class="flex-1">
+          <h2 class="font-bold text-statistic text-[1.05rem]">总访问人数</h2>
+          <!-- <span class="text-2xl">5,992</span> -->
+          <span class="text-2xl"> {{ summary[2] }} </span>
+          <div class="flex gap-x-2">
+            <span class="flex items-end">较昨日</span>
+            <span class="text-base text-red-600">{{ summary[1] }}</span>
+            <span class="flex justify-center items-center text-red-600"><arrow-up-outlined /></span>
+          </div>
+        </div>
+        <!-- 格子右侧 -->
+        <div class="flex-1">
+          <ChartMain canvas-id="ss_1" :config="LineChartConfig" />
+        </div>
+      </div>
+      <div
+        class="rounded-sm px-2 py-3 flex max-h-[8.5rem]"
+        style="background: linear-gradient(rgb(242, 249, 254) 0%, rgb(230, 244, 254) 100%)">
+        <!-- 格子左侧 -->
+        <div class="flex-1">
+          <h2 class="font-bold text-statistic text-[1.05rem]">总访问人数</h2>
+          <!-- <span class="text-2xl">5,992</span> -->
+          <span class="text-2xl"> {{ summary[2] }} </span>
+          <div class="flex gap-x-2">
+            <span class="flex items-end">较昨日</span>
+            <span class="text-base text-red-600">{{ summary[1] }}</span>
+            <span class="flex justify-center items-center text-red-600"><arrow-up-outlined /></span>
+          </div>
+        </div>
+        <!-- 格子右侧 -->
+        <div class="flex-1">
+          <ChartMain canvas-id="c-20" :config="PieChartConfig" />
+        </div>
+      </div>
+      <div
+        class="rounded-sm px-2 py-3 flex max-h-[8.5rem]"
+        style="background: linear-gradient(rgb(247, 247, 255) 0%, rgb(236, 236, 255) 100%)">
+        <!-- 格子左侧 -->
+        <div class="flex-1">
+          <h2 class="font-bold text-statistic text-[1.05rem]">总访问人数</h2>
+          <!-- <span class="text-2xl">5,992</span> -->
+          <span class="text-2xl"> {{ summary[2] }} </span>
+          <div class="flex gap-x-2">
+            <span class="flex items-end">较昨日</span>
+            <span class="text-base text-red-600">{{ summary[1] }}</span>
+            <span class="flex justify-center items-center text-red-600"><arrow-up-outlined /></span>
+          </div>
+        </div>
+        <!-- 格子右侧 -->
+        <div class="flex-1">
+          <ChartMain canvas-id="count-c" :config="LineChartConfig2" />
+        </div>
+      </div>
